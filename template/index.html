@@ -1,0 +1,36 @@
+<html>
+   <head>
+      <title>VueJs Introduction</title>
+      <script type = "text/javascript" src = "../js/vue.js"></script>
+   </head>
+   <body>
+      <div id="vuefun">
+         <h1>{{firstname}}</h1>
+         <h1>Lastname : {{lastname}}</h1>
+         <div v-html="hello"></div>
+         <!-- sabai data leunu xa vane $data leknne -->
+         <!-- v-html vaneko chai html ma dekha vanne ho vue aafalai bujhxaa  -->
+         <!-- {{hello}} leko vane chai yesle bujhdaina yeslai html format ma chaiyo vanerea so v-html is used for manipulating it and display in html format -->
+          <img v-bind:src = "imgsrc" width = "300" height = "250" />
+          <!-- image lai display garna xa vane imgsrc ra data ma vako chai eutai juna parxa ra html ma kunai attribute halna parxa vane v-bind use garna parxa -->
+         
+      </div>
+      <script type = "text/javascript">
+         var vm = new Vue({
+            el:'#vuefun',
+            data: {
+               firstname : "Ria",
+               lastname  : "Singh",
+               hello : "<div><h1>Vue Js Template</h1></div>",
+               imgsrc : "../images/pic.jpeg"
+            }
+      
+           
+         })
+         console.log(vm.firstname);  // -> 4
+         console.log(vm.$data);  // -> 4
+
+
+      </script>
+   </body>
+</html>

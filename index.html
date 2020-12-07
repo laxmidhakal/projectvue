@@ -1,0 +1,30 @@
+<html>
+   <head>
+      <title>VueJs Instance</title>
+      <script type = "text/javascript" src = "js/vue.js"></script>
+   </head>
+   <body>
+      <div id = "vue_det">
+         <h1>Firstname : {{firstname}}</h1>
+         <h1>Lastname : {{lastname}}</h1>
+         <h1>Address : {{address}}</h1>
+         <h1>Function:{{mydetails()}}</h1>
+      </div>
+
+      <script type = "text/javascript">
+         var  vm = new Vue({
+            el: '#vue_det',
+            data: {
+               firstname : "Laxmi",
+               lastname  : "Dhakal",
+               address    : "bRT"
+            },
+            methods: {
+               mydetails : function() {
+                  return "I am "+this.firstname +" "+ this.lastname+"i am from"+this.address;
+               }
+            }
+         })
+      </script>
+   </body>
+</html>

@@ -1,0 +1,72 @@
+<html>
+   <head>
+      <title>VueJs Instance</title>
+      <script type = "text/javascript" src = "js/vue.js"></script>
+   </head>
+   <body>
+      <div id = "component_test">
+         <testcomponent></testcomponent>
+      </div>
+      <div id = "component_test1">
+         <testcomponent></testcomponent>
+      </div>
+      <div id = "try">
+         <laxmi></laxmi>
+      </div>
+     <!--  //pahila duita id rakhne tespaxi script ma component rakhne 
+      //component le reusable gardinxa tya lekheko kura multiple thauma display garxa
+      //in short i.E ek tir se do nisan
+      //script ma lekeko component banaune sytax ho ra component am elkeko laxmi chai id vitra halepaxi matra dekhauxa natra dekhaudaina component vitra lekeko naam chai component ko naam ho
+      Vue.component('nameofthecomponent',{ // options});syntax
+      //yo sript ma template ma j lekeko xa  -->
+      <script type = "text/javascript">
+         //method1 pahila component banaune id ma ni teskai tag rakhneani naya instance banaune vue ko ra attah handine
+          Vue.component('laxmi',{
+             template : '<div><h1>This is coming from component making reusable</h1></div>'
+          });
+          var vm2 = new Vue({
+             el: '#try'
+          });
+
+         //method 2 yesam chai pahila nai aeuta innstance create garxa ra tesma commpnent halxa yesle tyo id ko matra display garxa
+
+         // var vm = new Vue({
+         //    el: '#component_test',
+         //    components:{
+         //       'testcomponent': {
+         //          template : '<div><h1>This is coming from component</h1></div>'
+         //       }
+         //    }
+         // });
+
+         Vue.component('testcomponent',{
+            template : '<div v-on:mouseover = "changename()" v-on:mouseout = "originalname();"><h1>Custom Component created by <span id = "name">{{name}}</span></h1></div>',
+            data: function() {
+               return {
+                  name : "laxmi"
+               }
+            },
+            methods:{
+               changename : function() {
+                  this.name = "Ben";
+               },
+               originalname: function() {
+                  this.name = "Ria";
+               }
+            }
+         });
+         var vm = new Vue({
+            el: '#component_test'
+         });
+         var vm1 = new Vue({
+            el: '#component_test1'
+         });
+
+
+         // yesma hovering effect haleko xa on mouseover ma changenaame vaane function bolako xa ani tya gayear name ma ben save garxa ra tehhi name chai display hunxa simialrly mouse hataye paxi arko function bolauxa nad dviceversaa
+         // by default chai laxmi nai aauxa tara jaba mouse hver hunxa value change gardinnxa tesele
+
+      </script>
+      
+   </body>
+</html>
